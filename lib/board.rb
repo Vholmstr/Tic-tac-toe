@@ -1,11 +1,13 @@
 class Board
   attr_reader :grid, :winner
 
+  # Creates a new nested array 3x3
   def initialize()
     @grid = Array.new(3) {Array.new(3, 0)}
     @winner = nil
   end
 
+  # Checks if gris position is already filled or fills it if it isn't
   def update_square(row, column, value)
     if (@grid[row][column] == 0)
       @grid[row][column] = value
@@ -15,6 +17,7 @@ class Board
     end
   end
 
+  # Translates the board from numbers to symbols for printing
   def print_board
     @grid.each do |row|
       row_string = "|"
@@ -64,7 +67,7 @@ class Board
     else
     end
 
-    # Check for a winner
+    # Check if a winner has been found
     if @winner != nil
       return true
     else

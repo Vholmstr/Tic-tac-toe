@@ -11,6 +11,7 @@ class Game
 
   public 
 
+  # Resets the game
   def new_game()
     @board = Board.new()
     puts "New game started"
@@ -26,6 +27,7 @@ class Game
       return false
     end
 
+    # Checks if the chosen square is already filled or not
     if try_to_update_board(input)
       if @current_player == @player_one
         @current_player = @player_two
@@ -40,6 +42,7 @@ class Game
     end
   end
 
+  # Checks for three in a row
   def check_for_winner()
     if @board.check_for_winner
       puts "#{@board.winner} is the winner!"
@@ -56,6 +59,7 @@ class Game
 
   private
 
+  # Converts the input into commands to update corresponding square in the grid
   def try_to_update_board(input)
     case input
     when 1 
